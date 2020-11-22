@@ -1,0 +1,152 @@
+.main {
+  border-style: solid;
+  border-color: black;
+  border-width: 10px;
+  padding: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}
+hr {
+  color: #eee;
+}
+#t {
+  border-style: none none none solid;
+  border-color: #518ce8;
+  border-width: 5px;
+  padding-left: 2px;
+  font-size: 30px;
+}
+.title p {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.part2 > .alert > p {
+  border-style: solid;
+  border-radius: 3px;
+  padding: 14px;
+  font-size: 16px;
+}
+
+#alert1 {
+  color: #448ef6;
+  background-color: rgb(204, 229, 255);
+  border-color: rgb(184, 218, 255);
+}
+#alert2 {
+  color: #393e46;
+  background-color: rgb(226, 227, 229);
+  border-color: rgb(214, 216, 217);
+}
+#alert3 {
+  color: #28a745;
+  background-color: rgb(212, 237, 218);
+  border-color: rgb(195, 230, 203);
+}
+#alert4 {
+  color: #dc3545;
+  background-color: rgb(248, 215, 218);
+  border-color: rgb(245, 198, 203);
+}
+#alert5 {
+  color: #ffc107;
+  background-color: rgb(255, 243, 205);
+  border-color: rgb(255, 238, 187);
+}
+#alert6 {
+  color: #17a2b8;
+  background-color: rgb(209, 236, 241);
+  border-color: rgb(190, 229, 235);
+}
+#alert7 {
+  color: #222831;
+  background-color: rgb(214, 216, 217);
+  border-color: rgb(198, 200, 202);
+}
+
+button {
+  padding: 10px;
+  width: 116px;
+  border-radius: 5px;
+  font-size: large;
+  border-style: solid;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+#button01 {
+  background-color: #448ef6;
+  border-color: rgba(68, 142, 246, 1);
+  color: white;
+}
+#button02 {
+  background-color: #393e46;
+  border-color: rgba(57, 62, 70, 1);
+  color: white;
+}
+#button03 {
+  background-color: #28a745;
+  border-color: rgba(40, 167, 69, 1);
+  color: white;
+}
+#button04 {
+  background-color: #dc3545;
+  border-color: rgba(220, 53, 69, 1);
+  color: white;
+}
+#button05 {
+  background-color: #ffc107;
+  border-color: rgba(255, 193, 7, 1);
+  color: black;
+}
+#button06 {
+  background-color: #17a2b8;
+  border-color: rgba(23, 162, 184, 1);
+  color: white;
+}
+#button07 {
+  background-color: #f2f2f5;
+  color: black;
+}
+#button08 {
+  background-color: #222831;
+  border-color: rgba(34, 40, 49, 1);
+  color: white;
+}
+#button11 {
+  color: #448ef6;
+  border-color: rgba(68, 142, 246, 1);
+  background-color: white;
+}
+#button12 {
+  color: #393e46;
+  border-color: rgba(57, 62, 70, 1);
+  background-color: white;
+}
+#button13 {
+  color: #28a745;
+  border-color: rgba(40, 167, 69, 1);
+  background-color: white;
+}
+#button14 {
+  color: #dc3545;
+  border-color: rgba(220, 53, 69, 1);
+  background-color: white;
+}
+#button15 {
+  color: #ffc107;
+  border-color: rgba(255, 193, 7, 1);
+  background-color: white;
+}
+#button16 {
+  color: #17a2b8;
+  border-color: rgba(23, 162, 184, 1);
+  background-color: white;
+}
+#button17 {
+  background-color: white;
+}
+#button18 {
+  color: #222831;
+  background-color: white;
+  border-color: rgba(34, 40, 49, 1);
+}
