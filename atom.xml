@@ -6,7 +6,7 @@
   <link href="https://wujunyi792.github.io/atom.xml" rel="self"/>
   
   <link href="https://wujunyi792.github.io/"/>
-  <updated>2020-11-28T23:49:09.005Z</updated>
+  <updated>2020-11-29T09:31:17.594Z</updated>
   <id>https://wujunyi792.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wujunyi792.github.io/2020/11/29/%E5%86%85%E5%B5%8C%E7%BD%91%E9%A1%B5%E6%B5%8B%E8%AF%95/"/>
     <id>https://wujunyi792.github.io/2020/11/29/%E5%86%85%E5%B5%8C%E7%BD%91%E9%A1%B5%E6%B5%8B%E8%AF%95/</id>
     <published>2020-11-28T22:56:15.000Z</published>
-    <updated>2020-11-28T23:49:09.005Z</updated>
+    <updated>2020-11-29T09:31:17.594Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>摘要<br>连夜写出来的小 demo，有参考一些 GitHub 和 gitee 程序，稍后有空会补充好文档！！<br>*<em>Attention:**这个网页还未适配手机端，所以在手机上显示效果不太好，稍后会进行修正</em>（挖坑 ing）*</p></blockquote><a id="more"></a><h3 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明:"></a>一些说明:</h3><ul><li>正常操作步骤：<code>开始</code>→<code>停止</code>→<code>下一轮</code></li><li>在标签球上使用滚轮，可以对标签球进行缩放</li><li>新设备进入该网页时由于没有 json 文件缓存，会自动转入<code>setting.html</code>页面进行设置（目前接口还未配置好，故直接点击<code>下面设置好点我GoGoGo to 主页面！</code>即可）</li><li>参与人员可以修改，刷新网页数据会保留</li><li>参与人员栏底部<code>重置</code>按钮可以将参与人员列表恢复最初设置（61 人）</li><li><code>设置</code>页面头部<code>重置所有记录</code>可以清空在主页的所有抽签记录</li><li><strong>当<code>下一轮</code>按钮无法点击时，进入<code>设置</code>，进行<code>重置所有记录</code>后，通过点击<code>下面设置好点我GoGoGo to 主页面！</code>即可正常使用</strong></li><li>不要点动态标签，它会带你去不知道什么页面！！（bug 还在优化）<iframe src="/assets/lucking/index.html" height="560px" width="100%" scrolling="auto" frameborder="0" style="box-shadow: 0px 0px 20px -10px #888;"></iframe></li></ul><p>参考文章:<br><a href="">参考链接</a></p>]]></content>
     
@@ -32,7 +32,7 @@
     
     
     
-    <category term="测试" scheme="https://wujunyi792.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    <category term="iframe框架" scheme="https://wujunyi792.github.io/categories/iframe%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="内嵌网页" scheme="https://wujunyi792.github.io/tags/%E5%86%85%E5%B5%8C%E7%BD%91%E9%A1%B5/"/>
