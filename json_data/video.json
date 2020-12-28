@@ -1,5 +1,22 @@
 [
-    {"desc":"《稻香-demo》————自制","url":"https://videos-wujunyi.oss-cn-beijing.aliyuncs.com/%E7%A8%BB%E9%A6%99demo--MV%E6%9C%80%E7%BB%88.mp4"},
-    {"desc":"temp-1-高中运动会视频1","url":"https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0002.MOV"},
-    {"desc":"temp-1-高中运动会视频2","url":"https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0007.MOV"}
+  {
+    "desc": "《稻香-demo》————自制",
+    "url": "https://videos-wujunyi.oss-cn-beijing.aliyuncs.com/%E7%A8%BB%E9%A6%99demo--MV%E6%9C%80%E7%BB%88.mp4"
+  },
+  {
+    "desc": "temp-1-高中运动会视频1,下载地址https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0002.MOV",
+    "url": "https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0002.MOV"
+  },
+  {
+    "desc": "temp-2-高中运动会视频2，下载地址https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0007.MOV",
+    "url": "https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0007.MOV"
+  },
+  {
+    "desc": "temp-3-高中运动会视频3，下载地址https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0008.MOV",
+    "url": "https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0008.MOV"
+  },
+  {
+    "desc": "temp-4-高中运动会视频4，下载地址https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0001.MOV",
+    "url": "https://temp-wujunyi-stable.oss-cn-hangzhou.aliyuncs.com/DJI_0001.MOV"
+  }
 ]
