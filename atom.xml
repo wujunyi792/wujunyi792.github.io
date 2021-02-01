@@ -6,7 +6,7 @@
   <link href="https://wujunyi792.github.io/atom.xml" rel="self"/>
   
   <link href="https://wujunyi792.github.io/"/>
-  <updated>2021-01-18T12:32:04.330Z</updated>
+  <updated>2021-02-01T05:13:13.698Z</updated>
   <id>https://wujunyi792.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Arduino基础知识学习</title>
+    <link href="https://wujunyi792.github.io/2021/02/01/Arduino%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://wujunyi792.github.io/2021/02/01/Arduino%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-02-01T04:27:55.000Z</published>
+    <updated>2021-02-01T05:13:13.698Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>已经两年多没碰单片机了，现在正好有空，决定重新开始认真学习一下。</p><p>这一篇Blog主要介绍Arduino和基本元器件的一些基础知识</p></blockquote><a id="more"></a><h1 id="Part-1-Arduino-Uno板"><a href="#Part-1-Arduino-Uno板" class="headerlink" title="Part 1 Arduino Uno板"></a>Part 1 Arduino Uno板</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><h3 id="来自arduino官网的介绍："><a href="#来自arduino官网的介绍：" class="headerlink" title="来自arduino官网的介绍："></a>来自arduino官网的介绍：</h3><blockquote><p>Arduino是一个基于易于使用的硬件和软件的开源原型设计平台。 Arduino板能够读取输入 - 传感器上的灯光，按钮上的手指或Twitter消息 - 并将其转换为输出 - 激活电机，打开LED，在线发布内容。您可以通过向板上的微控制器发送一组指令来告诉您的电路板该做什么。为此，您需要使用Arduino编程语言（基于连线）和基于Processing的Arduino软件（IDE）。</p></blockquote><h3 id="在使用中值得注意的是："><a href="#在使用中值得注意的是：" class="headerlink" title="在使用中值得注意的是："></a>在使用中值得注意的是：</h3><ul><li>每个输出引脚最多提供40mA电流</li><li>总输出电流不得超过200mA</li><li>Arduino勿放置在金属板上</li><li>输出引脚<strong>不可</strong>接地</li><li>输入引脚电压<strong>不得</strong>超过3.3V(5V)</li><li><strong>不得</strong>向Vin引脚提供超过12V的电压</li></ul><h2 id="引脚说明"><a href="#引脚说明" class="headerlink" title="引脚说明"></a>引脚说明</h2><p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210201130350.png" alt="img"></p><h3 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h3><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210201130735.png" alt="img" style="zoom:50%;" /><p>Arduino Uno开发板可以使用三种方式供电：</p><ul><li><p>直流电源插孔 -可以使用电源插孔为Arduino开发板供电。电源插孔通常连接到一个适配器。开发板的供电范围可以是5-20V，但制造商建议将其保持在7-12V之间。高于12V时，稳压芯片可能会过热，低于7V可能会供电不足。</p></li><li><p>VIN引脚 - 该引脚用于使用外部电源为Arduino Uno开发板供电。电压应控制在上述提到的范围内。</p></li><li><p>USB电缆 - 连接到计算机时，提供500mA/5V电压。</p></li></ul><p><strong>5v和3v3</strong></p><p>  根据制造商的数据手册，它们提供稳压的5V和3.3v，向外部组件供电。</p><p><strong>GND</strong></p><p>  在Arduino Uno引脚分配图中，可以看到有5个GND引脚，它们都是互连的。</p><p>  GND引脚用于闭合电路回路，并在整个电路中提供一个公共逻辑参考电平。务必确保所有的GND（Arduino、外设和组件）相互连接并且有共同点。</p><p><strong>RESET</strong> - 复位Arduino开发板。</p><p><strong>IOREF</strong> - 该引脚是输入/输出参考。它提供了微控制器工作的参考电压。</p><p>参考文章:<br><a href="">参考链接</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;已经两年多没碰单片机了，现在正好有空，决定重新开始认真学习一下。&lt;/p&gt;
+&lt;p&gt;这一篇Blog主要介绍Arduino和基本元器件的一些基础知识&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="单片机" scheme="https://wujunyi792.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="笔记" scheme="https://wujunyi792.github.io/categories/%E5%8D%95%E7%89%87%E6%9C%BA/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Arduino" scheme="https://wujunyi792.github.io/tags/Arduino/"/>
+    
+  </entry>
   
   <entry>
     <title>My One Note</title>
