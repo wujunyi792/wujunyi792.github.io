@@ -6,7 +6,7 @@
   <link href="https://wujunyi792.github.io/atom.xml" rel="self"/>
   
   <link href="https://wujunyi792.github.io/"/>
-  <updated>2021-02-01T10:51:45.893Z</updated>
+  <updated>2021-02-04T07:26:48.752Z</updated>
   <id>https://wujunyi792.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hgame weel1 Writeup</title>
+    <link href="https://wujunyi792.github.io/2021/02/04/Hgame%20weel1%20Writeup/"/>
+    <id>https://wujunyi792.github.io/2021/02/04/Hgame%20weel1%20Writeup/</id>
+    <published>2021-02-04T06:36:42.000Z</published>
+    <updated>2021-02-04T07:26:48.752Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要<br>第一次参加CTF，小白视角参赛体验，从零开始学CTF</p></blockquote><a id="more"></a><h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="第一题Hitchhiking-in-the-Galaxy"><a href="#第一题Hitchhiking-in-the-Galaxy" class="headerlink" title="第一题Hitchhiking_in_the_Galaxy"></a>第一题Hitchhiking_in_the_Galaxy</h2><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204144952.png" alt="Hitchhiking_in_the_Galaxy题目" style="zoom:50%;" /><p>这一题其实我看了蛮久的，好几题那没看出啥来，不过后来想到这题只有100分，那应该不是很难。果然是自己想太多！</p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>打开网页<code>http://hitchhiker42.0727.site:42420/</code>，看到如下页面</p><img src="C:\Users\Wu Junyi\AppData\Roaming\Typora\typora-user-images\image-20210204145549458.png" alt="image-20210204145549458" style="zoom:50%;" /><p>直接一个404，没啥信息，于是 F12 打开控制台看看有没有什么线索。header 里没看见什么奇怪的信息，只有页面源代码给出了一个 link 连接<code>HitchhikerGuide.php</code></p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204145947.png" alt="Hitchhiking_in_the_Galaxy_2" style="zoom:70%;" /><p>那就去看看那里有啥。</p><p>直接访问<code>http://hitchhiker42.0727.site:42420/HitchhikerGuide.php</code></p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204152559.png" alt="image-20210204152559407" style="zoom:33%;" /><p>好家伙又来到404页面，但是注意到这次来到的是<code>index.php</code>。打开控制台，发现是302转向到了<code>index.php</code>页面。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204150658.png" alt="image-20210204150658429" style="zoom:35%;" /><p>大胆猜测 maybe 访问方式不对，那把 GET 方式换成 POST方式试试。打开 Hackbar 插件，启用 POST请求，发送！有信息了！</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204150958.png" alt="image-20210204150958650" style="zoom:35%;" /><p>使用<code>Infinite Improbability Drive</code>方式？可能再说 User-Agent ？那 header 里加上 User-Agent 看看。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204151446.png" alt="image-20210204151446650" style="zoom:35%;" /><p>好家伙，成功了。不过又说要从 <a href="https://cardinal.ink/">Cardinal</a> 过来，那么很 easy，header 里再加上 <code>Referer</code>参数。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204151717.png" alt="image-20210204151717026" style="zoom:35%;" /><p>没毛病，成功了。又说要本地访问，那就在 header 里加个<code>X-Forwarded-For</code>参数，值为<code>127.0.0.1</code>。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210204151919.png" alt="image-20210204151919486" style="zoom:35%;" /><p>GET！<code>hgame&#123;s3Cret_0f_HitCHhiking_in_the_GAl@xy_i5_dOnT_p@nic!&#125;</code></p><p>参考文章:  </p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Forwarded-For">X-Forwarded-For 伪造Localhost</a></p><p><a href="">参考链接</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;摘要&lt;br&gt;第一次参加CTF，小白视角参赛体验，从零开始学CTF&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Hgame" scheme="https://wujunyi792.github.io/categories/Hgame/"/>
+    
+    
+    <category term="Hgame" scheme="https://wujunyi792.github.io/tags/Hgame/"/>
+    
+    <category term="writeup" scheme="https://wujunyi792.github.io/tags/writeup/"/>
+    
+  </entry>
   
   <entry>
     <title>PWN流水灯</title>
