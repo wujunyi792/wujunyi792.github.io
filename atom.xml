@@ -69,29 +69,27 @@
   </entry>
   
   <entry>
-    <title>激光测距</title>
+    <title>arduino 激光测距模块</title>
     <link href="https://wujunyi792.github.io/2021/02/13/%E6%BF%80%E5%85%89%E6%B5%8B%E8%B7%9D/"/>
     <id>https://wujunyi792.github.io/2021/02/13/%E6%BF%80%E5%85%89%E6%B5%8B%E8%B7%9D/</id>
     <published>2021-02-13T08:42:15.000Z</published>
-    <updated>2021-02-20T20:27:34.800Z</updated>
+    <updated>2021-02-21T20:05:54.406Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>摘要<br>首页显示摘要内容（替换成自己的）</p></blockquote><a id="more"></a><p>马上开始写了哈哈哈</p><p>参考文章:<br><a href="">参考链接</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>摘要<br>这里记录了关于 arduino 超声波模块的使用方法</p></blockquote><a id="more"></a><h1 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h1><h2 id="–超声波测距"><a href="#–超声波测距" class="headerlink" title="–超声波测距"></a>–超声波测距</h2><p>​    超声波，即人耳可听见频率以上的声波，可用来探测距离，其原理和雷达类似：从发射超声波到接收反射波所需的时间经过计算可以得到距离。</p><p>​    可<strong>在空气中</strong>传播的超声波频率大约介于 20~299kHz 之间，其衰减程度与频率成正比（频率越高，传播距离越短），我们平常能买到的超声波模块通常采用 38kHz、40kHz 或 42kHz。</p><p>​    在室温 20℃ 的环境中，声波的传播速度约为 344m/s（水中比空气中快 60 倍），因此，假设超声波往返的时间为 600μs 从公式可计算出被测物体的距离为 10.3cm。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222024202.png" alt="距离计算公司" style="zoom:70%;" /><p>​    从声音的传播速度和时间，可求出距离，而物体的实际距离是传播时间的一半，所以可以求得 <strong>1cm 距离的声波传递时间为 58μs。</strong></p><hr><p>空气的密度会影响声音的传播速度，空气的密度越高，声音传播速度越快，而空气的密度又与温度密切相关。考虑温度变化的声音传播速度的近似公式如下：</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222024944.png" alt="image-20210222024944129" style="zoom:50%;" /><p>​    此外，物体的形状和材质会影响超声波测距的效果和准确度，反射表面平整时，声波会照入射角反射回来，但要是表面粗糙的话，声音将被散射或吸收。不过，只要物体表面的坑洞尺寸小于声波波长的四分之一，即可视为平整表面。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222025426.png" alt="image-20210222025426787" style="zoom:50%;" /><p>BTW，假如超声波的发射和接收装置不在同一点，那么声音的传播途径不是直线，计算距离时要考虑传感器造成的夹角。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222025624.png" alt="image-20210222025624215" style="zoom:50%;" /><h2 id="–超声波传感器模块"><a href="#–超声波传感器模块" class="headerlink" title="–超声波传感器模块"></a>–超声波传感器模块</h2><blockquote><p>我记得高中时候有一次去区里答辩，我的项目是一个基于 arduino 的实验设备，然后有个老师就问我 “超声波传感器局限在哪，和红外测距有什么区别？” 当时我是懵了一下。</p><p>答：被测物体运动速度超过声速就无法测量了</p></blockquote><p>超声波模块一般有两个超声波元器件，一个用于发射，一个用于接收。电路板上一般四个引脚：VCC（正电源）、Trig（触发）、Echo（回应）、GND（接地）。大部分实验用的超声波传感器模块参数如下：</p><table><thead><tr><th>指标</th><th>值</th></tr></thead><tbody><tr><td>工作电压</td><td>5V</td></tr><tr><td>工作电流</td><td>15mA</td></tr><tr><td>感测角度</td><td>≤15°</td></tr><tr><td>被测物</td><td>面积不小于 50cm² 且平整</td></tr></tbody></table><p>在超声波模块的<strong>触发</strong>脚位输入 10微秒以上的高电位，即可发射超声波，发射超声波以后，与接收到传回的超声波之前，<strong>响应</strong>脚位呈现高电位。程序通过<strong>响应</strong>脚位的高电位脉冲持续时间，换算出被测物的距离。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222031200.png" alt="image-20210222031200008" style="zoom:70%;" /><h2 id="串口通信"><a href="#串口通信" class="headerlink" title="串口通信"></a>串口通信</h2><p>这玩意儿比较复杂，之间抛链接吧！<a href="https://en.wikipedia.org/wiki/Serial_communication">维基百科-Serial communication</a>.</p><p>这里看见个有意思的东西—— Mac OS 与 Linux 的通信端口。Windows 系统使用 COM（原意是COMmunication, 通信）代表通信端口，Mac OS（ 一种基干Unix 的操作系统）和 Linux 则用TIY 代表通信端口。TIY 的原意是 ‘’ teletypewriter “（早期用来操作和大型电脑联机的终端机）。Mac OS 和Linux 系统把每个设备都看成文件，位千／dev 路径底下，因此在Mac<br>的终端机窗口输入<code>ls -l /dev/tty.*</code>， 将能列举所有通信端口。</p><p>除了 TTY，Mac 和 Linux 上的通信端口还有包含—个同名的 CU。TTY 用于输入信息给设备，CU 代表 call up，用于从设备传出细信息，两者合作能同时收发信息，被称为全双工。在 Arduino 上，无论使用 TTY 还是 CU，都能传递信息，但一般选用 TTY。</p><h2 id="串行数据传输协议"><a href="#串行数据传输协议" class="headerlink" title="串行数据传输协议"></a>串行数据传输协议</h2><p><strong>传输协议</strong>代表通信设备双方所遵循的规范和参数，通信双方的设置要一致，才能相互沟通。</p><p>对于 USB 设备，像是键盘、鼠标等 “人机接口” 类、打印机的 “打印设备” 类、移动设备的 “存储设备” 类等，每个设备都有不同的传输协议，也需要安装对应的驱动程序。</p><p>当我们接上 Arduino Uno 开发板，在设备管理器中可以观察并更改其通信属性。</p><p><strong>每秒位数</strong>（bit per second，简称 bps）是串口的<strong>传输速率</strong>，也称为<strong>波特率</strong>（Baud rate）。两个通信设备的波特率必须一致，一般为两部机器所能接受的最高速率，常见的选择为 9600bps 和115200bps。<br>开始传输数据之前，RS-232 的传送（TX）与接收（RX）脚都处于高电位状态，传送数据时，它将先送出—个代表 “要开始传送囖! ” 的<strong>起始位</strong>（start bit, 低电位），接着才送出真正的数据内容（称为<strong>数据位</strong>，data bit ），每一组数据位的长度可以是5~8 个位，通常选用 8 个位。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222034431.png" alt="image-20210222034431685" style="zoom:70%;" /><p>一组数据位后面，会跟着代表 “传送完毕” 的<strong>停止位</strong>（stop bit），停止位通常占 1 位，某些低速的设备要求使用 2 位。</p><p>除了<strong>数据传输线</strong>。还需要一条确保信息收发两端步调一致的<strong>频率同步线</strong>。但 RS -232 和 USB 串口线不需要同步线，因为它们会在数据前后加上“开始” 和 “结束“ 信息。这种传送方式统称<strong>通用异步收发传输器</strong>(Universal Asynchronous Receiver/Transmitter，简称 UART）。</p><h1 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h1><p>fritzing 找不到超声波模块了，用网图代替下吧。</p><img src="https://images-wujunyi.oss-cn-shanghai.aliyuncs.com/blog/20210222040332.png" alt="image-20210222040332896" style="zoom:67%;" /><h1 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h1><table><thead><tr><th>名称</th><th>数量</th></tr></thead><tbody><tr><td>Adruino</td><td>1</td></tr><tr><td>超声波传感器模块</td><td>1</td></tr></tbody></table><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h1 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h1><p>参考文章:<br><a href="">参考链接</a></p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;摘要&lt;br&gt;首页显示摘要内容（替换成自己的）&lt;/p&gt;
+&lt;p&gt;摘要&lt;br&gt;这里记录了关于 arduino 超声波模块的使用方法&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
     
-    <category term="test3" scheme="https://wujunyi792.github.io/categories/test3/"/>
+    <category term="arduino" scheme="https://wujunyi792.github.io/categories/arduino/"/>
     
-    <category term="test4" scheme="https://wujunyi792.github.io/categories/test3/test4/"/>
+    <category term="单片机" scheme="https://wujunyi792.github.io/categories/arduino/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
     
-    <category term="test1" scheme="https://wujunyi792.github.io/tags/test1/"/>
-    
-    <category term="test2" scheme="https://wujunyi792.github.io/tags/test2/"/>
+    <category term="arduino" scheme="https://wujunyi792.github.io/tags/arduino/"/>
     
   </entry>
   
