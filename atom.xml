@@ -6,7 +6,7 @@
   <link href="https://wujunyi792.github.io/atom.xml" rel="self"/>
   
   <link href="https://wujunyi792.github.io/"/>
-  <updated>2021-04-13T02:51:56.206Z</updated>
+  <updated>2021-07-01T09:48:23.699Z</updated>
   <id>https://wujunyi792.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker操作</title>
+    <link href="https://wujunyi792.github.io/2021/07/01/docker%E6%93%8D%E4%BD%9C/"/>
+    <id>https://wujunyi792.github.io/2021/07/01/docker%E6%93%8D%E4%BD%9C/</id>
+    <published>2021-07-01T08:41:37.000Z</published>
+    <updated>2021-07-01T09:48:23.699Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要<br>Docker操作备忘录</p></blockquote><a id="more"></a><p>当利用 <code>docker run</code> 来创建容器时，Docker 在后台运行的标准操作包括：</p><ul><li>检查本地是否存在指定的镜像，不存在就从 <a href="">registry</a> 下载</li><li>利用镜像创建并启动一个容器</li><li>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层</li><li>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去</li><li>从地址池配置一个 ip 地址给容器</li><li>执行用户指定的应用程序</li><li>执行完毕后容器被终止</li></ul><h4 id="常用管理命令"><a href="#常用管理命令" class="headerlink" title="常用管理命令"></a>常用管理命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps &#x2F;&#x2F;查看正在运行的镜像</span><br><span class="line">$ docker ps -a &#x2F;&#x2F;查看所有容器包括停止的</span><br><span class="line">$ docker images ls &#x2F;&#x2F;查看本地下载的镜像</span><br><span class="line">$ docker container logs [id] 查看运行中镜像的输出</span><br><span class="line">$ docker container prune &#x2F;&#x2F;清理所有处于终止状态的容器</span><br></pre></td></tr></table></figure><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>以 Ubuntu 为例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker run ubuntu &#x2F;bin&#x2F;echo &#39;Hello world&#39;</span><br><span class="line"></span><br><span class="line">Hello world</span><br></pre></td></tr></table></figure><p>随后容器会被终止</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -dit ubuntu &#x2F;bin&#x2F;bash</span><br><span class="line">65ebb9c1f7f524e955d61ae6245a54de489bd8b4731764e8a67bfc1e22efc812</span><br></pre></td></tr></table></figure><ul><li>-d 后台运行</li><li>-i 交互式操作</li><li>-t 终端</li></ul><p><strong>容器是否会长久运行，是和 <code>docker run</code> 指定的命令有关，和 <code>-d</code> 参数无关。</strong></p><h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker exec -it [id] bash</span><br></pre></td></tr></table></figure><p>这样可以进入容器的交互终端</p><h3 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># exit</span><br></pre></td></tr></table></figure><p>使用 exec 进入容器后使用 exec 退出容器不会造成容器关闭</p><h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop [id] </span><br></pre></td></tr></table></figure><h3 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker start [id]</span><br><span class="line">$ docker restart [id]</span><br></pre></td></tr></table></figure><h3 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker export [id] &gt; [filename.tar]</span><br></pre></td></tr></table></figure><h3 id="导入容器"><a href="#导入容器" class="headerlink" title="导入容器"></a>导入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker </span><br></pre></td></tr></table></figure><p>参考文章:<br><a href="">参考链接</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;摘要&lt;br&gt;Docker操作备忘录&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://wujunyi792.github.io/categories/Linux/"/>
+    
+    <category term="docker" scheme="https://wujunyi792.github.io/categories/Linux/docker/"/>
+    
+    
+    <category term="docker" scheme="https://wujunyi792.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>HCTF INTERNAL SYSTEM 复现</title>
